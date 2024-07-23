@@ -32,34 +32,30 @@
                             <th>No</th>
                             <th>Nama Interface</th>
                             <th>Type</th>
+                            <th>RX/TX</th>
                             <th>Disabled</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($interfaces as $interface)
+                        {{-- {{ dd($interface) }} --}}
                             <tr>
                                 <td>{{ $loop->index + 1 }}</td>
                                 <td>{{ $interface['name'] }}</td>
                                 <td>{{ strtoupper($interface['type']) }}</td>
+                                <td><div id="trafik"></div></td>
                                 <td>
                                     @if ($interface['disabled'] == 'true')
-                                        <form action="{{ route('interface.enable', $interface['.id']) }}" method="POST"
-                                            style="display:inline;">
-                                            @csrf
-                                            <button type="submit" class="btn btn-success btn-sm">Enable</button>
-                                        </form>
+                                        <a href="{{ route('interface.enable', $interface['.id']) }}"
+                                           class="btn btn-success btn-sm">Enable</a>
                                     @else
-                                        <form action="{{ route('interface.disable', $interface['.id']) }}" method="POST"
-                                            style="display:inline;">
-                                            @csrf
-                                            <button type="submit" class="btn btn-danger btn-sm">Disable</button>
-                                        </form>
+                                        <a href="{{ route('interface.disable', $interface['.id']) }}"
+                                            class="btn btn-danger btn-sm">Disable</a>
                                     @endif
                                 </td>
                                 <td>
                                     <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                                    <a href="#" class="btn btn-sm btn-danger">Hapus</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -1,14 +1,15 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginRouterController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InterfaceController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LoginRouterController::class, 'index']);
+Route::post('/login-router', [LoginRouterController::class, 'login_router'])->name('login-router');
 
-Route::get('/interface', [InterfaceController::class, 'index'])->name('interface.index');
-Route::post('/interface/{interfaceId}/disable', [InterfaceController::class, 'disableInterface'])->name('interface.disable');
-Route::post('/interface/{interfaceId}/enable', [InterfaceController::class, 'enableInterface'])->name('interface.enable');
-Route::post('/interface/{interfaceId}/update', [InterfaceController::class, 'updateInterface'])->name('interface.update');
+Route::get('/dashbaord', [DashboardController::class, 'index'])->name('dashboard');
+Route::prefix('interface')->group(function () {
+    Route::get('/', [InterfaceController::class, 'index'])->name('interface');
+});
 
