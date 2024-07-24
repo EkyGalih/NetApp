@@ -27,7 +27,7 @@
                     </i> Create IP Address
                 </button>
             </div>
-            @include('ip-address.partials.add')
+            @include('ip.address.partials.add')
         </div>
     </div>
 @endsection
@@ -106,7 +106,7 @@
                                     </form>
                                 </div>
                                 <!-- Modal -->
-                                @include('ip-address.partials.edit')
+                                @include('ip.address.partials.edit')
                             </td>
                         </tr>
                     @endforeach

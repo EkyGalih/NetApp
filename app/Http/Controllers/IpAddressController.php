@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\AddressService;
 use App\Services\InterfaceService;
+use App\Services\ip\address\AddressService;
 use Illuminate\Http\Request;
 
 class IpAddressController extends Controller
@@ -22,7 +22,7 @@ class IpAddressController extends Controller
         $interfaces = $this->interface->getInterfaces();
         $ip_address = $this->address->getAddressList();
 
-        return view('ip-address.index', compact('ip_address', 'interfaces'));
+        return view('ip.address.index', compact('ip_address', 'interfaces'));
     }
 
     public function store(Request $request)
