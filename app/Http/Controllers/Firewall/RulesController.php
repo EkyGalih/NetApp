@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Firewall;
 
 use App\Http\Controllers\Controller;
-use App\Services\IP\Firewall\RulesService;
+use App\Services\IP\Firewall\RulesFirewall;
 use Illuminate\Http\Request;
 
-class FirewallController extends Controller
+class RulesController extends Controller
 {
     protected $firewallRules;
 
-    public function __construct(RulesService $firewallRules)
+    public function __construct(RulesFirewall $firewallRules)
     {
         $this->firewallRules = $firewallRules;
     }

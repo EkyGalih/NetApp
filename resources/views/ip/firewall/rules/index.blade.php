@@ -23,6 +23,17 @@
         </tr>
     </thead>
     <tbody>
-
+        @foreach ($rules as $item)
+        {{-- {{ dd($item) }} --}}
+        <tr>
+            <td>{{ $loop->index + 1 }}</td>
+            <td>{{ $item['action'] }}</td>
+            <td>{{ $item['chain'] }}</td>
+            <td>{{ $item['protocol'] }}</td>
+            {{-- <td>{{ $item['dst-port'] }}</td> --}}
+            <td>{{ $item['in-interface'] }}</td>
+            {{-- <td>{{ $item['src-address'] }}</td> --}}
+        </tr>
+        @endforeach
     </tbody>
 </table>

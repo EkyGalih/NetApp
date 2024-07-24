@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\ip\address;
+namespace App\Services\IP\Address;
 
 use App\Models\RouterosAPI;
 use GuzzleHttp\Exception\ClientException;

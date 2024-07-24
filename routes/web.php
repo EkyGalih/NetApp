@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginRouterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Firewall\FirewallController;
+use App\Http\Controllers\Firewall\RulesController;
 use App\Http\Controllers\InterfaceController;
 use App\Http\Controllers\IpAddressController;
 use Illuminate\Support\Facades\Route;
@@ -32,5 +33,8 @@ Route::prefix('ip')->group(function () {
 
     Route::prefix('firewall')->group(function() {
         Route::get('/', [FirewallController::class, 'index'])->name('firewall');
+        Route::prefix('rules')->group(function() {
+            Route::get('/', [RulesController::class, 'index'])->name('firewall.rules');
+        });
     });
 });

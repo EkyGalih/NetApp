@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\InterfaceService;
-use App\Services\ip\address\AddressService;
+use App\Services\IP\Address\AddressService;
 use Illuminate\Http\Request;
 
 class IpAddressController extends Controller
