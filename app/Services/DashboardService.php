@@ -42,6 +42,16 @@ class DashboardService
         }
     }
 
+    public function getSystemResource()
+    {
+        try {
+            $resource = $this->API->comm('/system/resource/print');
+            return $resource[0]['board-name'].' ('. $resource[0]['architecture-name'] .')';
+        } catch (ClientException $e) {
+            return ['error' => $e->getMessage()];
+        }
+    }
+
     public function getData()
     {
         try {

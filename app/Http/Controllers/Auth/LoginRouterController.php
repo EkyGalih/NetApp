@@ -41,6 +41,7 @@ class LoginRouterController extends Controller
 
         $request->session()->put($data);
         $request->session()->put('identity', $this->dashbaordService->getSystemIdentity());
+        $request->session()->put('model', $this->dashbaordService->getSystemResource());
         $request->session()->put('username', $this->dashbaordService->getSystemUser());
 
         return redirect()->route('dashboard');
