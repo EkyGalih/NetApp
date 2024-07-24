@@ -86,7 +86,7 @@
                                 @else
                                     <form action="{{ route('interface.status', $interface['.id']) }}" method="POST">
                                         @csrf
-                                        <button type="submit" class="btn btn-light-danger btn-sm">
+                                        <button type="submit" class="btn btn-light-dark btn-sm">
                                             <i class="ki-duotone ki-cross fs-2 me-1">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
