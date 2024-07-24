@@ -4,11 +4,19 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Api\RouterosController;
 use App\Http\Controllers\Controller;
+use App\Services\DashboardService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class LoginRouterController extends Controller
 {
+    protected $dashbaordService;
+
+    public function __construct(DashboardService $dashbaordService)
+    {
+        $this->dashbaordService = $dashbaordService;
+    }
+
     public function index()
     {
         return view('auth.login_router');
@@ -32,6 +40,8 @@ class LoginRouterController extends Controller
         ];
 
         $request->session()->put($data);
+        $request->session()->put('identity', $this->dashbaordService->getSystemIdentity());
+        $request->session()->put('username', $this->dashbaordService->getSystemUser());
 
         return redirect()->route('dashboard');
     }

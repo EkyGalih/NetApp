@@ -23,4 +23,17 @@
 <script src="{{ asset('assets/js/custom/utilities/modals/create-app.js') }}"></script>
 <script src="{{ asset('assets/js/custom/utilities/modals/new-target.js') }}"></script>
 <script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>
+
 @yield('scripts')
+@if (Session::has('success'))
+    <script type="text/javascript">
+        toastr.success("{!! Session::pull('success') !!}");
+    </script>
+@endif
+
+@if (Session::has('fail'))
+    <script type="text/javascript">
+        toastr.error("{!! Session::pull('fail') !!}");
+    </script>
+@endif
+@notifyJs

@@ -83,7 +83,10 @@
 					<!--end::Sidebar-->
 					<!--begin::Main-->
 					<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                        <div class="d-flex flex-column flex-column-fluid">
+                        @yield('header')
 						@yield('content')
+                        </div>
 						<div id="kt_app_footer" class="app-footer">
 							<!--begin::Footer container-->
 							@include('layouts.footer')
